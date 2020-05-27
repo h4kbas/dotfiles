@@ -1,9 +1,6 @@
 
-
+# Config
 export PROMPT_DIRTRIM=2
-
-# Alias directories
-alias w="cd ~/Workspace"
 
 # Alias metworking tools
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'

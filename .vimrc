@@ -614,3 +614,8 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+" Custom Config
+let mapleader=","
+
+" End of Custom Config
