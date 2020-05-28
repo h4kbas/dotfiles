@@ -10,3 +10,7 @@ alias hhosts='sudo nano /etc/hosts'
 
 # Alias applications
 alias vim='/usr/local/Cellar/vim/8.2.0800/bin/vim'
+
+# Enable colors 
+autoload -U colors && colors
+
