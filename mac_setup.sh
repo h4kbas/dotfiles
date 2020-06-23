@@ -59,3 +59,9 @@ flutter doctor
 
 # Install Nodejs
 brew install nodejs
+
+# Install Go
+# install it via https://golang.org/dl/ 
+
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
