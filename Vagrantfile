@@ -1,7 +1,7 @@
 # <projectname> development image
 Vagrant.configure("2") do |config|
   # Base box image  
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/focal64"
   # Network config
   config.vm.network "private_network", type: "dhcp"
   # Mounted folders to the host machine

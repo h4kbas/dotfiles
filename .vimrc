@@ -111,7 +111,16 @@ Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
+" dart
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
+" flutter
+Plug 'thosakwe/vim-flutter'
+
+" jedi vim
+Plug 'davidhalter/jedi-vim'
 "*****************************************************************************
 "*****************************************************************************
 
@@ -617,5 +626,32 @@ endif
 
 " Custom Config
 let mapleader=","
+
+" Code Folding
+nnoremap <leader>j zfi} 
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+" Clipboard
+set clipboard=unnamed
+
+" Jedi Vim bindings
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_stubs_command = "<leader>s"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+
+" Lsc config
+let g:lsc_auto_map = v:true
+
+" Dart config
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
 
 " End of Custom Config
