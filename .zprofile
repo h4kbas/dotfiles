@@ -13,6 +13,8 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 
 # Flutter path
 export PATH="$PATH:$HOME/SDK/flutter/bin:$PATH"
+# Pub path
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # Go path
 export PATH=$PATH:/usr/local/go/bin
