@@ -9,7 +9,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias hhosts='sudo vim /etc/hosts'
 
 # Alias applications
-alias vim='/usr/local/Cellar/vim/8.2.0800/bin/vim'
+alias vim='/usr/local/bin/nvim'
 
 # Enable colors 
 autoload -U colors && colors

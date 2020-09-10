@@ -53,7 +53,7 @@ sdkmanager "platform-tools" "platforms;android-28"
 # Install Flutter
 mkdir -p ~/SDK
 cd ~/SDK
-git clone https://github.com/flutter/flutter.git -b stable --depth 1
+git clone https://github.com/flutter/flutter.git -b stable --depth 1 --no-single-branch
 flutter
 flutter doctor
 
