@@ -7,9 +7,13 @@ alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias hhosts='sudo vim /etc/hosts'
-
+alias c='clear'
 # Alias applications
 alias vim='/usr/local/bin/nvim'
+
+# Alias configuration paths
+alias vimrc='vim ~/.config/nvim/init.vim'
+alias zshrc='vim ~/.zshrc'
 
 # Enable colors 
 autoload -U colors && colors

@@ -124,6 +124,9 @@ Plug 'thosakwe/vim-flutter'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" nerdtree icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "*****************************************************************************
 "*****************************************************************************
 
@@ -264,7 +267,6 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
-
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
@@ -352,7 +354,6 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
-
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
