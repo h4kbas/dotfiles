@@ -123,6 +123,8 @@ Plug 'thosakwe/vim-flutter'
 
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" coc tslint
+Plug 'neoclide/coc-tslint'
 
 " nerdtree icons
 Plug 'ryanoasis/vim-devicons'
@@ -634,16 +636,31 @@ endif
 " Custom Config
 let mapleader=","
 
+" Line editing
+set ve+=onemore
+inoremap <silent> <Esc> <Esc>`^
+set relativenumber
+
+" Buff editing
+nnoremap S s
+nnoremap s :w<cr>
+
+" Code Info
+nnoremap <silent> L :call CocAction('doHover')<CR>
+
 " Code Folding
 nnoremap <leader>j zfi} 
 set foldmethod=indent   
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+
 " Clipboard
 set clipboard=unnamed
-" Cursor line
-set guicursor=a:ver30
+
+"" Cursor line
+"set guicursor=a:ver30
+
 " Mouse Active
 set mouse=a
 

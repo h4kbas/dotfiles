@@ -6,8 +6,8 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # Android paths
 export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=/Users/huseyinakbas/Library/Android/sdk
+export ANDROID_HOME=/Users/huseyinakbas/Library/Android/sdk
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 
