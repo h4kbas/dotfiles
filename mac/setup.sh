@@ -10,11 +10,11 @@ brew install git
 mkdir -p ~/Workspace/h4kbas/
 cd ~/Workspace/h4kbas/
 git clone git@github.com:h4kbas/dotfiles.git
+cd -
 
 ### Symlinks ###
 ln -f -s ~/Workspace/h4kbas/dotfiles/.zshrc  ~/.zshrc
-
-
+ln -f -s ~/Workspace/h4kbas/dotfiles/.gitconfig ~/.gitconfig
 
 ### Mac ###
 

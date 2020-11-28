@@ -1,0 +1,15 @@
+[user]
+	email = huskb.code@gmail.com
+	name = Hüseyin
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	a = add .
+	s = status
+	c = commit -m
+	b = branch
+	co = checkout
+	cb = checkout -b
+	r = reset HEAD --
+	p = push origin
+	pl = pull origin
