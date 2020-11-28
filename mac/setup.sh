@@ -157,9 +157,6 @@ brew install --cask vagrant-manager
 # Install Evernote
 brew install --cask evernote
 
-# Install Visual studio code
-brew install --cask visual-studio-code
-
 # Install Spotify
 brew install --cask spotify
 
