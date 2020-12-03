@@ -1,4 +1,5 @@
-
+# Auth path
+export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 # Config
 export PROMPT_DIRTRIM=2
 
@@ -39,6 +40,16 @@ alias gpull='git pull origin'
 alias gm='git merge'
 
 
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+
 # Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
 set input-meta on
 set output-meta on
@@ -64,3 +75,10 @@ set match-hidden-files off
 
 # Be more intelligent when autocompleting by also looking at the text after
 set skip-completed-text on
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi

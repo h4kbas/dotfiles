@@ -141,27 +141,34 @@ killall Finder
 ### Applications ###
 
 # Install Firefox
-brew install --cask firefox
+brew cask install firefox
 
 ### Development Tools ###
 
 # Install Virtualbox
-brew install --cask virtualbox
+brew cask install virtualbox
 
 # Install Vagrant
-brew install --cask vagrant
+brew cask install vagrant
 
 # Install Vagrant Manager
-brew install --cask vagrant-manager
+brew cask install vagrant-manager
 
 # Install Evernote
-brew install --cask evernote
+brew cask install evernote
 
 # Install Spotify
-brew install --cask spotify
+brew cask install spotify
 
 # Install Keka
-brew install --cask keka
+brew cask install keka
 
 # Install Docker
-brew install --cask docker
+brew cask install docker
+
+# Install zsh autocomplete
+brew install zsh-autocomplete
+rm -f ~/.zcompdump; compinit
+sudo chmod go-w '/usr/local/share'
+sudo chmod -R 755 /usr/local/share/zsh
+sudo chown -R root:staff /usr/local/share/zsh

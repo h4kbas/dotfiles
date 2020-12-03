@@ -23,3 +23,5 @@ export GOPATH=$HOME/Workspace
 # Rust path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export CLICOLOR=1
+export LSCOLORS=GxBxCxDxexegedabagaced
