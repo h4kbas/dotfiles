@@ -1,0 +1,10 @@
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
+font:
+  size: 14
+  normal:
+    family: Menlo

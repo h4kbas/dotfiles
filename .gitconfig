@@ -1,6 +1,6 @@
 [user]
-	email = huskb.code@gmail.com
-	name = Hüseyin
+	email = h4kbas@gmail.com
+	name = Hüseyin Akbaş
 [alias]
 	unstage = reset HEAD --
 	last = log -1 HEAD
@@ -13,3 +13,8 @@
 	r = reset HEAD --
 	p = push origin
 	pl = pull origin
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
