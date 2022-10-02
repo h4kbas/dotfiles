@@ -147,6 +147,10 @@ brew install --cask font-hack-nerd-font
 # Install Terminal
 brew install --cask alacritty
 
+# Install neovim
+
+brew install nvim
+
 # Install tmux
 
 brew install tmux
