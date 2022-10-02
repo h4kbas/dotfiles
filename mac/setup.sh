@@ -12,9 +12,21 @@ cd ~/Workspace/h4kbas/
 git clone git@github.com:h4kbas/dotfiles.git
 cd -
 
+# Config folder
+
+mkdir -p ~/.config/alacritty
+cd ~/Workspace/h4kbas
+git clone git@github.com:h4kbas/nvim.git
+cd -
+
 ### Symlinks ###
+ln -s ~/Workspace/h4kbas/nvim ~/.config/nvim
 ln -f -s ~/Workspace/h4kbas/dotfiles/.zshrc  ~/.zshrc
+ln -f -s ~/Workspace/h4kbas/dotfiles/.zprofile  ~/.zprofile
 ln -f -s ~/Workspace/h4kbas/dotfiles/.gitconfig ~/.gitconfig
+ln -f -s ~/Workspace/h4kbas/dotfiles/.inputrc ~/.inputrc
+ln -f -s ~/Workspace/h4kbas/dotfiles/.tmux.conf ~/.tmux.conf
+ln -f -s ~/Workspace/h4kbas/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 ### Mac ###
 
@@ -127,9 +139,17 @@ killall Finder
 
 ### Fonts ###
 
-cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 ### Applications ###
+
+# Install Terminal
+brew install --cask alacritty
+
+# Install tmux
+
+brew install tmux
 
 # Install Firefox
 brew install --cask firefox
@@ -139,7 +159,7 @@ brew install --cask  spotify
 
 # Install Keka
 brew install --cask keka
-
+c
 # Install Docker
 brew install --cask docker
 
