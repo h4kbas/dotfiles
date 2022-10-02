@@ -22,12 +22,6 @@ ln -f -s ~/Workspace/h4kbas/dotfiles/.gitconfig ~/.gitconfig
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-# Ask for the administrator password upfront
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # Set screen scaled to x 
 defaults write NSGlobalDomain AppleDisplayScaleFactor 1.0
 
@@ -61,13 +55,6 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
-
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-
-# Follow the keyboard focus while zoomed in
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
@@ -141,34 +128,19 @@ killall Finder
 ### Applications ###
 
 # Install Firefox
-brew cask install firefox
-
-### Development Tools ###
-
-# Install Virtualbox
-brew cask install virtualbox
-
-# Install Vagrant
-brew cask install vagrant
-
-# Install Vagrant Manager
-brew cask install vagrant-manager
-
-# Install Evernote
-brew cask install evernote
+brew install --cask firefox
 
 # Install Spotify
-brew cask install spotify
+brew install --cask  spotify
 
 # Install Keka
-brew cask install keka
+brew install --cask keka
 
 # Install Docker
-brew cask install docker
+brew install --cask docker
 
 # Install zsh autocomplete
-brew install zsh-autocomplete
+brew install zsh-completions
 rm -f ~/.zcompdump; compinit
-sudo chmod go-w '/usr/local/share'
 sudo chmod -R 755 /usr/local/share/zsh
 sudo chown -R root:staff /usr/local/share/zsh
