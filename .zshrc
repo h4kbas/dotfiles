@@ -6,7 +6,6 @@ export PROMPT_DIRTRIM=2
 # Custom alias
 alias noveupsshfs='sshfs root@78.141.193.132:/home ~/Noveup -o defer_permissions -o volname=Noveup'
 alias vim='/usr/local/bin/nvim'
-alias dvim='docker run -it --rm -a STDIN -a STDOUT  -v $PWD:/src -v ~/Workspace/h4kbas/dotfiles/vim/.vimrc:/root/.vimrc -v ~/Workspace/h4kbas/dotfiles/vim/.vimrc:/root/.config/nvim/init.vim -v ~/Workspace/h4kbas/dotfiles/vim/aubervim.vim:/root/.config/nvim/colors/aubervim.vim h4kbas/nvim'
 
 # Alias metworking tools
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
