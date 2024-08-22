@@ -5,7 +5,7 @@ export PROMPT_DIRTRIM=2
 
 # Custom alias
 alias noveupsshfs='sshfs root@78.141.193.132:/home ~/Noveup -o defer_permissions -o volname=Noveup'
-alias vim='/usr/local/bin/nvim'
+alias vim='/opt/homebrew/bin/nvim'
 
 # Alias metworking tools
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -102,3 +102,18 @@ parse_git_branch() {
 
 setopt PROMPT_SUBST
 PROMPT='%{%F{yellow}%}%9c%{%F{none}%} $(parse_git_branch)$ '
+
+# bun completions
+[ -s "/Users/huseyinakbas/.bun/_bun" ] && source "/Users/huseyinakbas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Private stuff I don't wanna push to git
+[ -f ~/.zsh_private ] &&
+source ~/.zsh_private

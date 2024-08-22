@@ -21,7 +21,7 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/Workspace
 
 # Rust path
-source $HOME/.cargo/env
+#source $HOME/.cargo/env
 
 export CLICOLOR=1
 export LSCOLORS=GxBxCxDxexegedabagaced
@@ -29,4 +29,8 @@ export LSCOLORS=GxBxCxDxexegedabagaced
 
  export PATH="$PATH:~/SDK/flutter/bin"
 
-export PATH="$(yarn global bin):$PATH"
+# export PATH="$(yarn global bin):$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
