@@ -25,8 +25,8 @@ export GOPATH=$HOME/Workspace
 
 export CLICOLOR=1
 export LSCOLORS=GxBxCxDxexegedabagaced
-
-
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+export ANDROID_HOME=/Users/huseyinakbas/Library/Android/sdk
  export PATH="$PATH:~/SDK/flutter/bin"
 
 # export PATH="$(yarn global bin):$PATH"
