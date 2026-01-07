@@ -72,7 +72,7 @@ zstyle ':completion:*' menu select
 
 # --- EXTERNAL SOURCES ---
 # Bun Completions
-[ -s "/Users/huseyinakbas/.bun/_bun" ] && source "/Users/huseyinakbas/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Private stuff
 [ -f ~/.zsh_private ] && source ~/.zsh_private

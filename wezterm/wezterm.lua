@@ -25,6 +25,8 @@ local colors = {
 config.font_size = 12
 config.font = wezterm.font("Hack Nerd Font")
 config.window_decorations = "RESIZE"
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
 
 -- Title bar styling
 config.window_frame = {
