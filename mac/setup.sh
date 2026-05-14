@@ -149,6 +149,14 @@ brew install \
     rustup \
     zsh-completions
 
+# dooit config imports dooit_extras; install into Homebrew dooit venv (not system Python)
+if command -v brew &>/dev/null && brew --prefix dooit &>/dev/null; then
+    _dooit_py="$(brew --prefix dooit)/libexec/bin/python"
+    if [ -x "$_dooit_py" ]; then
+        "$_dooit_py" -m pip install --upgrade "dooit-extras" || true
+    fi
+fi
+
 if ! command -v rustc &> /dev/null; then
     rustup-init -y --no-modify-path
 fi
