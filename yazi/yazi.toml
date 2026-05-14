@@ -1,0 +1,14 @@
+[preview]
+max_width = 2560
+max_height = 1440
+image_filter = "lanczos3"
+
+[plugin]
+prepend_previewers = [
+    { url = "*.csv", run = "rich-preview"}, # for csv files
+    { url = "*.md", run = "rich-preview" }, # for markdown (.md) files
+    { url = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
+    { url = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
+    { url = "*.json", run = "rich-preview"}, # for json (.json) files
+#    { url = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
+]

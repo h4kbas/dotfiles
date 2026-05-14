@@ -22,7 +22,7 @@ local colors = {
 --- Window & Font Settings ---
 -- config.initial_cols = 120
 -- config.initial_rows = 28
-config.font_size = 12
+config.font_size = 13
 config.font = wezterm.font("Hack Nerd Font")
 config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false

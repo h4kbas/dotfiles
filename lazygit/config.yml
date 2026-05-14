@@ -1,0 +1,36 @@
+gui:
+  showFileChangeTabs: true
+  border: 'rounded'
+  sidePanelWidth: 0.33
+  showCommandLog: true
+  screenMode: 'normal'
+  showIcons: true
+  nerdFontsVersion: "3"
+  mainPanelSplitMode: 'flexible'
+  theme:
+    activeBorderColor:
+      - '#82AAFF'
+      - 'bold'
+    inactiveBorderColor:
+      - '#523F4D'
+    searchingActiveBorderColor:
+      - '#FFCB6B'
+    optionsTextColor:
+      - '#C792EA'
+    selectedLineBgColor:
+      - '#4F384A' # This fixes the blue block
+    selectedRangeBgColor:
+      - '#4F384A' # This fixes the blue block in staging
+    cherryPickedCommitBgColor:
+      - '#523F4D'
+    cherryPickedCommitFgColor:
+      - '#F78C6C'
+    unstagedChangesColor:
+      - '#F44C5E'
+    defaultFgColor:
+      - '#F6F6F4'
+git:
+  pagers: # Fixed from 'pagers'
+    - colorArg: always
+      pager: 'delta --dark --paging=never --line-numbers --syntax-theme=base16 --plus-style="syntax #56524B" --plus-emph-style="syntax #737A5C" --minus-style="syntax #5F3642" --minus-emph-style="syntax #873C4A" --file-style="#82AAFF" --hunk-header-style="#C792EA" --line-numbers-plus-style="#C3E88D" --line-numbers-minus-style="#F44C5E"'
+      interactiveDiffFilter: 'delta --color-only --line-numbers --syntax-theme=base16 --plus-style="syntax #56524B" --plus-emph-style="syntax #737A5C" --minus-style="syntax #5F3642" --minus-emph-style="syntax #873C4A"'

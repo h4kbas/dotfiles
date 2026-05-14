@@ -6,6 +6,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export EDITOR=nvim
+
 # History Settings
 export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
@@ -53,3 +55,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 export CLICOLOR=1
 # Matches your WezTerm palette: Blue folders, Cyan symlinks
 export LSCOLORS="exfxcxdxbxegedabagacad"
+
+# Lazygit
+export XDG_CONFIG_HOME="$HOME/.config"
+

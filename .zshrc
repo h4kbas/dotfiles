@@ -76,3 +76,4 @@ zstyle ':completion:*' menu select
 
 # Private stuff
 [ -f ~/.zsh_private ] && source ~/.zsh_private
+export PATH="$HOME/.local/bin:$PATH"

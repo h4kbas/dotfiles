@@ -20,3 +20,50 @@
 	required = true
 [core]
 	excludesFile = ~/.gitignore
+  pager = 'delta'
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+  line-numbers = true
+  syntax-theme = base16
+  plus-style = "syntax #56524B"
+  plus-emph-style = "syntax #737A5C"
+  minus-style = "syntax #5F3642"
+  minus-emph-style = "syntax #873C4A"
+  file-style = "#82AAFF"
+  hunk-header-style = "#C792EA"
+  line-numbers-plus-style = "#C3E88D"
+  line-numbers-minus-style = "#F44C5E"
+[merge]
+  features = decorations
+  conflictStyle = zdiff3
+[delta "decorations"]
+  commit-decoration-style = none
+  file-style = omit
+  file-decoration-style = none
+  hunk-header-style = omit
+[color "diff"]
+  meta = "#82AAFF"
+  frag = "#C792EA"
+  old = "#F44C5E"
+  new = "#C3E88D"
+  whitespace = "#F44C5E" reverse
+[color "status"]
+  added = "#C3E88D"
+  changed = "#FFCB6B"
+  untracked = "#C792EA"
+  branch = "#82AAFF"
+  localBranch = "#82AAFF"
+  remoteBranch = "#F78C6C"
+[color "branch"]
+  current = "#C3E88D"
+  local = "#82AAFF"
+  remote = "#F78C6C"
+  upstream = "#C792EA"
+[color "decorate"]
+  branch = "#82AAFF"
+  remoteBranch = "#F78C6C"
+  tag = "#FFCB6B"
+  HEAD = "#C3E88D"
