@@ -123,6 +123,8 @@ ln -sf  "$DOTFILES_DIR/dooit/config.py" "$HOME/.config/dooit/config.py"
 
 # --- 5. Brew Formulas ---
 echo "Installing CLI tools..."
+brew tap floatpane/matcha
+brew install floatpane/matcha/matcha
 brew install \
     git \
     git-delta \

@@ -79,6 +79,10 @@ backup_into yazi-local-share "$HOME/.local/share/yazi"
 backup_into posting-local-share "$HOME/.local/share/posting"
 backup_into posting-config "$HOME/.config/posting"
 
+# --- matcha (https://docs.matcha.floatpane.com/Configuration) ---
+backup_into matcha-config "$HOME/.config/matcha"
+backup_into matcha-cache "$HOME/.cache/matcha"
+
 # --- rainfrog ---
 backup_into rainfrog-config "$HOME/.config/rainfrog"
 
