@@ -325,8 +325,6 @@ def use_aubergine_theme(api: DooitAPI, _: Startup):
             Mode(api),
             Spacer(api, width=0),
             StatusIcons(api, bg=theme.background2),
-            TextBox(api, text="  ", bg=theme.primary),
-            TextBox(api, text=" -4°C ", fg=theme.foreground3, bg=theme.background3),
             TextBox(api, text=" 󰥔 ", bg=theme.primary),
             Clock(
                 api,
