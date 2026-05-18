@@ -128,7 +128,6 @@ brew install floatpane/matcha/matcha
 brew install \
     git \
     git-delta \
-    lazygit \
     neovim \
     tmux \
     node \
@@ -145,19 +144,22 @@ brew install \
     pinentry-mac \
     posting \
     rainfrog \
-    dooit \
     cocoapods \
     fastlane \
     rustup \
     zsh-completions
 
-# dooit config imports dooit_extras; install into Homebrew dooit venv (not system Python)
-if command -v brew &>/dev/null && brew --prefix dooit &>/dev/null; then
-    _dooit_py="$(brew --prefix dooit)/libexec/bin/python"
-    if [ -x "$_dooit_py" ]; then
-        "$_dooit_py" -m pip install --upgrade "dooit-extras" || true
-    fi
+# Personal tap (forks: h4kbas/lazygit, h4kbas/dooit)
+LOCAL_TAP="${USER}/local"
+if ! brew tap | grep -qx "$LOCAL_TAP"; then
+    brew tap-new "$LOCAL_TAP"
 fi
+LOCAL_TAP_DIR="$(brew --repository "$LOCAL_TAP")"
+mkdir -p "$LOCAL_TAP_DIR/Formula"
+cp "$DOTFILES_DIR/mac/homebrew-local/Formula/lazygit.rb" "$LOCAL_TAP_DIR/Formula/lazygit.rb"
+cp "$DOTFILES_DIR/mac/homebrew-local/Formula/dooit.rb" "$LOCAL_TAP_DIR/Formula/dooit.rb"
+brew install --HEAD "$LOCAL_TAP/lazygit"
+brew install --HEAD "$LOCAL_TAP/dooit"
 
 if ! command -v rustc &> /dev/null; then
     rustup-init -y --no-modify-path

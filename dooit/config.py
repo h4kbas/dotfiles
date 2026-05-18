@@ -17,7 +17,6 @@ from dooit.ui.api.widgets import TodoWidget
 from dooit_extras.bar_widgets import Clock, Mode, Spacer, StatusIcons, TextBox
 from dooit_extras.formatters import (
     description_highlight_tags,
-    due_casual_format,
     due_icon,
     status_icons,
     todo_description_progress,
@@ -46,6 +45,9 @@ ACCENT1 = "#3E9689"
 
 REC_ICON = "\U000f0456"
 ICON_WS = "\U000f024b"
+ICON_CREATED = "\U000f0170"
+ICON_DONE_AT = "\U000f012f"
+ICON_DETAILS = "\U000f089f"
 _ZWSP = "\u200b"
 
 _EXTRA_TCSS = f"""
@@ -69,6 +71,18 @@ ModelTree {{
 
 ModelTree:focus {{
     border: heavy $primary;
+}}
+
+#todo_details_editor {{
+    border: heavy {BG4};
+    border-title-color: $foreground1;
+    border-title-background: {BG4};
+}}
+
+#todo_details_editor.-panel-focus {{
+    border: heavy $primary;
+    border-title-color: $background1;
+    border-title-background: $primary;
 }}
 
 ModelTree:focus .option-list--option-highlighted,
@@ -193,6 +207,51 @@ def todo_recurrence_formatter(recurrence: Optional[timedelta], model: Todo, api:
     return Text() + Text(REC_ICON + " ", style=Style(color=theme.primary)) + Text(body)
 
 
+def _format_date_only(dt: Optional[datetime]) -> str:
+    if dt is None:
+        return ""
+    fmt = "%b %d"
+    if dt.year != datetime.now().year:
+        fmt += " '%y"
+    return dt.strftime(fmt)
+
+
+def _format_todo_datetime(dt: Optional[datetime], icon: str, color: str) -> Text:
+    if dt is None:
+        return Text(_ZWSP)
+
+    return (
+        Text()
+        + Text(icon + " ", style=Style(color=color))
+        + Text(_format_date_only(dt))
+    )
+
+
+def todo_description_details_icon(description: str, model: Todo, api: DooitAPI):
+    text = Text(str(description or ""))
+    if (model.details or "").strip():
+        text = Text(ICON_DETAILS + " ", style=Style(color=api.vars.theme.secondary)) + text
+    return text
+
+
+def todo_due_date_formatter(due: Optional[datetime], _: Todo, api: DooitAPI):
+    if due is None:
+        return _ZWSP
+    return _format_date_only(due)
+
+
+def todo_created_at_formatter(created_at: Optional[datetime], _: Todo, api: DooitAPI):
+    theme = api.vars.theme
+    return _format_todo_datetime(created_at, ICON_CREATED, theme.foreground1)
+
+
+def todo_completed_at_formatter(
+    completed_at: Optional[datetime], _: Todo, api: DooitAPI
+):
+    theme = api.vars.theme
+    return _format_todo_datetime(completed_at, ICON_DONE_AT, theme.green)
+
+
 def todo_effort_formatter(effort: object, _: Todo, api: DooitAPI):
     try:
         n = int(effort)
@@ -275,6 +334,8 @@ def use_aubergine_theme(api: DooitAPI, _: Startup):
     fmt.todos.description.formatters.clear()
     fmt.todos.recurrence.formatters.clear()
     fmt.todos.effort.formatters.clear()
+    fmt.todos.created_at.formatters.clear()
+    fmt.todos.completed_at.formatters.clear()
     fmt.workspaces.description.formatters.clear()
 
     fmt.workspaces.description.add(workspace_description_formatter)
@@ -283,8 +344,9 @@ def use_aubergine_theme(api: DooitAPI, _: Startup):
     fmt.todos.urgency.add(
         urgency_icons(icons={1: "  󰎤", 2: "  󰎧", 3: "  󰎪", 4: "  󰎭"})
     )
-    fmt.todos.due.add(due_casual_format())
+    fmt.todos.due.add(todo_due_date_formatter)
     fmt.todos.due.add(due_icon(completed=" ", pending=" ", overdue=" "))
+    fmt.todos.description.add(todo_description_details_icon)
     fmt.todos.description.add(
         todo_description_progress(
             fmt=Text("  {completed_count}/{total_count}", style=theme.green).markup
@@ -293,11 +355,15 @@ def use_aubergine_theme(api: DooitAPI, _: Startup):
     fmt.todos.description.add(description_highlight_tags(fmt=" {}"))
     fmt.todos.recurrence.add(todo_recurrence_formatter)
     fmt.todos.effort.add(todo_effort_formatter)
+    fmt.todos.created_at.add(todo_created_at_formatter)
+    fmt.todos.completed_at.add(todo_completed_at_formatter)
 
     api.layouts.todo_layout = [
         TodoWidget.status,
         TodoWidget.description,
         TodoWidget.due,
+        TodoWidget.created_at,
+        TodoWidget.completed_at,
         TodoWidget.urgency,
         TodoWidget.recurrence,
         TodoWidget.effort,
@@ -319,6 +385,14 @@ def use_aubergine_theme(api: DooitAPI, _: Startup):
         _make_toggle_expand_nested(api),
         description="Toggle expand; expands nested workspaces or todos when opening",
     )
+    api.keys.set("o", api.edit_todo_details, description="Edit task details (multiline)")
+    api.keys.set(
+        "ctrl+e",
+        api.open_description_in_editor,
+        description="Open description in $EDITOR (while editing with i)",
+    )
+    api.keys.set("T", api.edit_created_at, description="Edit task created date")
+    api.keys.set("F", api.edit_completed_at, description="Edit task completed date")
 
     api.bar.set(
         [
